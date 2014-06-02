@@ -1,0 +1,646 @@
+@import 'scss/jeet/index';
+@import '../css/normalize.css';
+@import '../library/bower_components/breakpoint-sass/stylesheets/breakpoint';
+@import '../library/bourbon/bourbon';
+@import '../css/fonts.css';
+@import 'scss/mixins.scss';
+@import '../css/slick.css';
+@import 'scss/slick.scss';
+// @include edit();
+
+html { 
+	font-size: 62.5%;
+	font-family: 'Karla', sans-serif;
+ 	-webkit-font-smoothing: auto;
+ 	text-rendering: geometricPrecision;
+}
+
+// @include transition (all 0.4s cubic-bezier(0.850, 0.000, 0.000, 1.000));
+
+a {
+	@include transition (color 0.2s ease-in-out, margin-bottom 0.2s ease-in-out);
+	color: $pink;
+	text-decoration: none;
+	outline: none;
+	transform: translateY(10px);
+	&:hover {
+		color: #dd735d;
+		border-bottom: 2px solid #dd735d;
+	}
+}
+
+p {
+	line-height: 1.45;
+}
+
+body {
+	border-left: 20px solid white;
+	border-right: 20px solid white;
+	@include breakpoint($breakpoint-desktop) {
+		border-left: 10px solid white;
+		border-right: 10px solid white;
+	}
+	@include breakpoint($breakpoint-tablet) {
+		border: 0;
+	}
+}
+
+// ------------------- Row One
+
+.row-one {
+	position: relative;
+	.ratio {
+		padding-top: 33.33333333%;
+		@include breakpoint($breakpoint-mobile) {
+			padding-top: 100%;
+		}
+	}
+	.content {
+		@include content;	
+	}
+}
+
+.mackblajik {
+	@include col(4/12);
+	@include breakpoint($breakpoint-tabletMin) {
+		@include shift(-8/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	position: relative;
+    background: url('../img/mackblajik.jpg');
+    background-size: 100%;
+    height: 100%;
+}
+
+.soundcloud {
+	@include col(5/12);
+	@include breakpoint($breakpoint-tabletMin) {
+		@include shift(1/12);
+	}
+	@include breakpoint($breakpoint-tablet) {
+		@include col(6/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	position: relative;
+	line-height: 1.2;
+	font-family: "freight-text-pro", Georgia, Times, serif;
+    	ul {
+    		list-style-type: none;
+    		margin: 0 0;
+    		padding: 0;
+    		height: 100%
+    	}
+    	li {
+    		@include breakpoint($breakpoint-tablet) {
+				height: 25%;
+			}
+    		border-bottom: 1px solid #ededed;
+    		height: 20%;
+    		position: relative;
+    		display: flex;
+    		align-items: center;
+    		margin-top: -1px;
+    		.song-listing {
+    			@include col(11/12);
+    			margin-left: 6%;
+	    		@include breakpoint($breakpoint-mobile) {
+					font-size: 1.2em !important;
+				}
+    			.song-artist {
+					@include font-size(16px);
+					color: #777777;
+				}
+				.song-title {
+					clear: both;
+					color: #303030;
+				 }
+    		}
+    		.song-view {
+				font-family: "SSPika";
+				font-size: 1.0em;
+				margin-right: 6%;
+				-webkit-font-smoothing: antialiased;
+				@include breakpoint($breakpoint-mobile) {
+					font-size: 1.4em !important;
+				}
+				a {
+					color: #dcdcdc;
+					text-decoration: none;
+					border: 0;
+				}
+				a:hover {
+					color: #c9cac9
+				}
+			}
+    	}
+    	li:last-child {
+    		border-bottom: none;
+    			@include breakpoint($breakpoint-tablet) {
+					display: none;
+				}
+    	}
+}
+
+.title {
+	@include col(3/12);
+	@include breakpoint($breakpoint-tabletMin) {
+		@include shift(9/12);
+	}
+	@include breakpoint($breakpoint-tablet) {
+		@include col(2/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	position: relative;
+	height: 100%;
+    	.title-logo {
+			background: $pink url('../img/logo.svg') no-repeat;
+			background-size: 20%;
+			background-position: 50%;
+			height: 40%;
+			@include transition (all 0.15s ease-in-out);
+			&:hover {
+				background-color: #e77861;
+			}
+			@include breakpoint($breakpoint-tablet) {
+				height: 100%;
+				background-size: 42%;
+			}
+		}
+		.title-text {
+			background: $tan;
+			height: 60%;
+			position: relative;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			line-height: 1.5;
+			font-size: 1.0em;
+			@include breakpoint($breakpoint-tablet) {
+				display: none;
+			}
+			.title-text-container {
+				@include center();
+				position: relative;
+				height: 35%;
+				p {
+					padding: 0;
+					margin: 0;
+				}
+				.title-intro {
+					text-transform: uppercase;
+					font-weight: 700;
+					font-size: 0.7em;
+					letter-spacing: 0.07em;
+					opacity: 0.8;
+				}
+				.title-by {
+					font-style: italic;
+					height: 30%;
+					font-size: 0.7em;
+					opacity: 0.4;
+				}
+				.title-name {
+					font-size: 1.4em;
+					opacity: 0.8;
+				}
+			}
+		}
+}
+
+// ------------------- Row Two
+
+.row-two {
+	position: relative;
+	.ratio {padding-top: 25%;
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: 33.333333%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			padding-top: 50%;
+			margin-top: 200%;
+		}
+	}
+	.content {
+		@include content;
+	}
+}
+
+.seattle-icons {
+	@include col(5/12);
+		height: 100%;
+		background: $tan url('../img/icon-seattle-food.svg') no-repeat;
+		background-size: 55%;
+		background-position: 42%;
+		@include breakpoint($breakpoint-tablet) {
+			@include col(4/12);
+			background-size: 66%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			@include stack();
+			height: 200%;
+			background-size: 70%;
+			background-position: 48%;
+		}
+}
+
+.dribbble {
+	@include col(2/12);
+		height: 100%;
+		background: $pink url('../img/icon-dribbble.svg') no-repeat;
+		background-size: 20%;
+		background-position: 50%;
+		cursor: pointer;
+		@include transition (all 0.15s ease-in-out);
+		&:hover {
+			background-size: 26%;
+			background-color: #e77861;
+		}
+		@include breakpoint($breakpoint-tablet) {
+			background-size: 30%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			@include col(6/12);
+			background-size: 20%;
+		}
+}
+
+.twitter {
+	@include col(2/12);
+		height: 100%;
+		background: $charc url('../img/icon-twitter.svg') no-repeat;
+		background-size: 23%;
+		background-position: 50%;
+		cursor: pointer;
+		@include transition (all 0.15s ease-in-out);
+		&:hover {
+			background-size: 28%;
+			background-color: #1e1f20;
+		}
+		@include breakpoint($breakpoint-tablet) {
+			background-size: 30%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			@include col(6/12);
+			background-size: 23%;
+		}
+}
+
+.geo-pattern {
+	@include col(3/12);
+		height: 100%;
+		overflow: hidden;
+		background: shade($yellow, 7%) url('../img/pattern-iso.svg') no-repeat;
+		background-size: 170%;
+		background-position: 53% 80%;
+		@include breakpoint($breakpoint-tablet) {
+			@include col(4/12);
+		}
+		@include breakpoint($breakpoint-mobile) {
+			@include stack();
+		}
+}
+
+// ------------------- Row Three
+
+.row-three {
+	position: relative;
+	.ratio {padding-top: 33.333333%;
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: 41.666666%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			padding-top: 100%;
+			margin-top: 150%;
+		}
+	}
+	.content {
+		@include content;
+	}
+}
+
+.the-thing {
+	@include col(3/12);
+	@include breakpoint($breakpoint-mobileMin) {
+		@include shift(9/12);
+	}
+	@include breakpoint($breakpoint-tablet) {
+		@include shift(8/12);
+		@include col(4/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+		@include shift(0/12);
+		background-size: 56%;
+	}
+	height: 100%;
+	background-color: $yellow;
+	.slide1 {
+		background: url('../img/icon-thething-title.svg') no-repeat;
+		background-size: 90%;
+		background-position: 50%;
+		height: 100%;
+		@include breakpoint($breakpoint-mobile) {
+			background-size: 70%;
+		}
+	}
+	.slide2 {
+		background: url('../img/icon-thething-straightjacket.svg') no-repeat;
+		background-size: 72%;
+		background-position: 50%;
+		height: 100%;
+		@include breakpoint($breakpoint-mobile) {
+			background-size: 56%;
+		}
+	}
+	.slide3 {
+		background: url('../img/icon-thething-thermometer.svg') no-repeat;
+		background-size: 85%;
+		background-position: 50%;
+		height: 100%;
+		@include breakpoint($breakpoint-mobile) {
+			background-size: 70%;
+		}
+	}
+}
+
+.keyboards {
+	@include col(6/12);
+	@include breakpoint($breakpoint-tablet) {
+		@include col(8/12);
+		@include shift(-4/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+		@include shift(0/12);
+		background-size: 80%;
+		background-position: 50% 70%;
+		margin-top: -8.3333333%;
+	}
+	height: 100%;
+	background: $blue url('../img/keyboards.png') no-repeat;
+	background-size: 70%;
+	background-position: 50% 90%;
+}
+
+.hello {
+	@include col(3/12);
+	@include breakpoint($breakpoint-mobileMin) {
+		@include shift(-9/12);
+	}
+	@include breakpoint($breakpoint-tablet) {
+		display: none;
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	position: relative;
+    background: url('../img/hello.svg') no-repeat;
+    background-size: 40%;
+    background-position: 50%;
+    height: 100%;
+}
+
+// ------------------- Row Four
+
+.row-four {
+	position: relative;
+	.ratio {padding-top: 50%;
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: 75%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			padding-top: 100%;
+			margin-top: 200%;
+		}
+	}
+	.content {
+		@include content;
+	}
+}
+
+.logo-and-uzi{
+	@include col(3/12);
+	height: 100%;
+	@include breakpoint($breakpoint-tablet) {
+		display: none;
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	.logo-anim {
+		height: 50%;
+		// background: $pink url('img/logo-big.svg') no-repeat;
+		// background-size: 50%;
+		// background-position: 50%;
+		@include breakpoint($breakpoint-mobile) {
+			height: 100%;
+		}
+	}
+	.uzi {
+		height: 50%;
+		position: relative;
+		background: $cream url('../img/uzi.svg') no-repeat;
+		background-size: 50%;
+		background-position: 54% 55%;
+		@include breakpoint($breakpoint-mobile) {
+			height: 100%;
+		}
+	}
+}
+
+.slider {
+	@include col(9/12);
+	@include breakpoint($breakpoint-tablet) {
+		@include col(12/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+		margin-top: 100%;
+	}
+	background-color: $charc;
+	height: 100%;
+	overflow: hidden;
+		div {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+		.slide1 {
+			position: relative;
+			background: $charc url('../img/slide1.png') no-repeat;
+			background-size: 90%;
+			background-position: 50%;
+			@include breakpoint($breakpoint-mobile) {
+				background-size: 100%;
+			}
+
+		}
+}
+
+// ------------------- Row Five
+
+.row-five {
+	position: relative;
+	.ratio {padding-top: 33.333333%;
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: 41.666666%;
+		}
+		@include breakpoint($breakpoint-mobile) {
+			padding-top: 100%;
+			margin-top: 200%;
+		}
+	}
+	.content {
+		@include content;
+	}
+}
+
+.about {
+	@include col(9/12);
+	@include breakpoint($breakpoint-tablet) {
+		@include col (8/12);
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+		height: auto;
+		padding: 12% 0 12% 0;
+	}
+	background: $tan;
+	height: 100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	.about-container {
+		@include col(10/12);
+		@include shift(1/12);
+		margin-top: -12px;
+		.about-big {
+			font-size: 3.4em;
+			@include breakpoint($breakpoint-mobile) {
+				font-size: 2.6em !important;
+			}
+		}
+		.about-small {
+			font-size: 2.0em;
+			@include breakpoint($breakpoint-mobile) {
+				font-size: 1.8em !important;
+			}
+		}
+	}
+}
+
+.horror-and-sounds {
+	@include col(3/12);
+	@include breakpoint($breakpoint-tablet) {
+		@include col (4/12);
+	}
+	@include breakpoint($breakpoint-mobile) {
+		@include stack();
+	}
+	.horror {
+		height: 75%;
+		background-color: $charc;
+		@include breakpoint($breakpoint-mobile) {
+			height: 100%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			opacity: 0.9;
+		}
+	}
+	.sounds {
+		background-color: $blue;
+		height: 25%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		:first-child {
+			margin-left: 5%;
+		}
+		:last-child {
+			margin-right: 5%;
+		}
+		.sound {
+			height: 100%;
+			width: 100%;
+			background: url('../img/smiley.svg') no-repeat;
+			background-size: 55%;
+			background-position: 50%;
+		}
+		.sound1 {
+			&:hover {
+				background: url('../img/smiley-oh.svg') no-repeat;
+				cursor: pointer;
+				background-size: 55%;
+				background-position: 50%;
+			}
+		}
+	}
+}
+
+
+//--------------------- Coming Soon
+
+
+.soon-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: $pink;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-font-smoothing: antialiased;
+}
+
+.new {
+	text-transform: uppercase;
+	display: block;
+	font-family: "Karla", "Apercu", Helvetica, sans-serif;
+	font-weight: 700;
+	color: black;
+	opacity: 0.3;
+	text-align: center;
+	letter-spacing: 2px;
+	font-size: 15px;
+}
+
+.soon {
+	font-family: "freight-text-pro", Georgia, Times, serif;
+	color: white !important; 
+	font-size: 1.1em;
+}
+
+.soon-logo {
+	background: url('../img/logo.svg') no-repeat;
+	background-size: 12%;
+	background-position: 50%;
+	margin-top: -20%;
+	padding-bottom: 15%;
+	height: auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+
