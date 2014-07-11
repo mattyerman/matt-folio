@@ -9,6 +9,10 @@
     <script type="text/javascript" charset="utf-8" src="logo_edgePreload.js"></script>
     <style>
         .edgeLoad-logo-animation { visibility:hidden; }
+        .jplayer{
+            visibility:hidden;
+            display:none;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +137,7 @@
 			</div>
 		</div>
 	</section>
+    <div id="jquery_jplayer_1" class="jplayer"></div>
 
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
@@ -161,8 +166,47 @@
   		arrows: false,
   		easing: 'easeInOutExpo'
   	});
- </script>
+</script>
+<script src="scripts/jquery.jplayer.min.js"></script>
+<script type="text/javascript">
+    // Wait for DOM to finish loading before proceeding
+    $( document ).ready(function() {
+        // Soundcloud API Information
+        var apiKey = "";
+        var apiUrl = "";
+        var path = "";
 
+
+        // Connect to the soundcloud API, retrieve list of songs for Mack Blajik
+        var retrieve_songs = function(callback){
+            
+            callback();
+        };
+
+        // Render list of songs into HTML, store relevant information about songs in data-tags
+        var render_songs = function(callback){
+            
+            callback();
+        };
+
+        // Bind callback functions to elements in the song rows
+        var bind_jplayer_callbacks = function(callback){
+            
+            callback();
+        };
+
+        // Initialize the jPlayer
+        $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+                retrieve_songs(function(){
+                    render_songs(function(){
+                        bind_jplayer_callbacks();
+                    });
+                });                
+            },
+            swfPath: "/scripts",
+        });
+    });
 </script>
 </body>
 </html>
