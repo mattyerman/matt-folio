@@ -7,6 +7,7 @@
 	<script src="scripts/slick.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/met7gyn.js"></script>
     <script type="text/javascript" charset="utf-8" src="logo_edgePreload.js"></script>
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
     <style>
         .edgeLoad-logo-animation { visibility:hidden; }
         .jplayer{
@@ -141,6 +142,7 @@
 
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
+    
 	$('.about-big').flowtype({minimum: 400, minFont: 18, maxFont: 32, fontRatio : 30});
 	$('.about-small').flowtype({minimum: 400, minFont: 13, maxFont: 20, fontRatio : 44});
 	$('.soundcloud').flowtype({minFont: 12, fontRatio : 42});
@@ -167,45 +169,96 @@
   		easing: 'easeInOutExpo'
   	});
 </script>
-<script src="scripts/jquery.jplayer.min.js"></script>
 <script type="text/javascript">
     // Wait for DOM to finish loading before proceeding
     $( document ).ready(function() {
         // Soundcloud API Information
-        var apiKey = "";
-        var apiUrl = "";
-        var path = "";
+        var client_id = "dd53477b034f71d746d0ef95df937a06";
+        var apiUrl = "http://api.soundcloud.com";
+        var pathForMackBlajikTracks = "/users/734840/tracks";
 
+        // store a global reference to the current SC sound object.
+        window.current_sc_sound = null;
+
+        SC.initialize({
+            'client_id': client_id,
+        });
 
         // Connect to the soundcloud API, retrieve list of songs for Mack Blajik
-        var retrieve_songs = function(callback){
-            
-            callback();
+        var retrieve_songs = function(){
+            SC.get(pathForMackBlajikTracks, function(tracks){
+                // Iterate tracks, create row from template string
+                // append all rows together as one big string before writing to the DOM, way more performant
+                render_songs(tracks);
+            });  
         };
 
         // Render list of songs into HTML, store relevant information about songs in data-tags
-        var render_songs = function(callback){
-            
-            callback();
+        var render_songs = function(tracks){
+            var bigStringOfRows = "";
+            for(var i = 0; i < tracks.length; i++){
+                var track = tracks[i];
+                bigStringOfRows = bigStringOfRows + '<li data-track-id="'+track['id']+'"> <div class="song-listing"> <div class="song-artist">'+track["user"]["username"]+'</div> <div class="song-title">'+track['title']+'</div> </div> <div class="song-view"><a href="#" data-track-id="'+track['id']+'">&#xEE00;</a></div> </li>';
+            }            
+            $('.soundcloud ul').html(bigStringOfRows);
+
+            // Rows are ready to get callbacks for mouseclick
+            bind_jplayer_callbacks();
+        };
+
+        // Stream SC track with ID
+        var stream_song_wth_id = function(id){
+            // Pause currently playing sound
+            if (window.current_sc_sound){
+                window.current_sc_sound.pause();
+            }
+
+            // Stream the track with ID
+            SC.stream("/tracks/"+id, function(sound){
+                sound.play();
+                window.current_sc_sound = sound;
+            });
         };
 
         // Bind callback functions to elements in the song rows
         var bind_jplayer_callbacks = function(callback){
-            
-            callback();
+            $('.soundcloud ul li').each(function(index){
+                $(this).on('click', function(){
+                    var $this = $(this);
+                    // If this is the active song & playing -> pause it
+                    // If this is the active song & paused -> play it
+                    if ($this.hasClass('song-active')) {
+                        if($this.hasClass('song-playing')) {
+                            window.current_sc_sound.pause();
+                            $this.removeClass('song-playing');
+                            $this.addClass('song-paused');
+                        } else if ($this.hasClass('song-paused')) {
+                            window.current_sc_sound.play();
+                            $this.addClass('song-playing');
+                            $this.removeClass('song-paused');
+                        }
+                        // Were done, no need to do any of the below.
+                        return;
+                    }
+                    
+                    // Remove song-playing, song-paused on active element
+                    // Remove song-active class on the element
+                    // add song-active class to $this <li> element
+                    $('.song-active').removeClass('song-playing');
+                    $('.song-active').removeClass('song-paused');
+                    $('.song-active').removeClass('song-active');
+                    $(this).addClass('song-active');
+                    
+                    // Grab track_id from the attribute set on the <li> element
+                    var track_id = $(this).attr('data-track-id');
+                    stream_song_wth_id(track_id); 
+                    $this.addClass('song-playing');
+                    $this.removeClass('song-paused');
+                }) 
+            });
         };
 
-        // Initialize the jPlayer
-        $("#jquery_jplayer_1").jPlayer({
-            ready: function () {
-                retrieve_songs(function(){
-                    render_songs(function(){
-                        bind_jplayer_callbacks();
-                    });
-                });                
-            },
-            swfPath: "/scripts",
-        });
+        retrieve_songs();                
     });
 </script>
 </body>
