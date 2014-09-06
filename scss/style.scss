@@ -45,6 +45,12 @@ body {
 	}
 }
 
+.container {
+	// max-width: 1860px; // - Max-Width container
+	margin: 0 auto;
+	background: white;
+}
+
 // ------------------- Row One
 
 .row-one {
@@ -473,9 +479,95 @@ body {
 		}
 		.slide1 {
 			position: relative;
-			background: $charc url('../img/slide1.png') no-repeat;
-			background-size: 90%;
+			background: $charc url('../img/slide1.jpg') no-repeat;
 			background-position: 50%;
+			background-size: 100% auto;
+			@include breakpoint($breakpoint-mobile) {
+				background-size: 100%;
+			}
+			&:hover .overlay{
+				opacity: 1;
+				.slide-title {
+					-webkit-transform: translateY(0px);
+            		transform: translateY(0px);
+				}
+			}
+			.overlay {
+				position: relative;
+				display: flex;
+				align-items: center;
+				background: rgba(42,43,44,0.8);
+            	text-align: center;
+            	justify-content: center;
+            	opacity:0;
+            	-webkit-transition: all .25s ease;
+            	.slide-title {
+            		padding: 2% 8% 1% 8%;
+            		border: 4px solid white;
+            		color: white;
+            		-webkit-transform: translateY(60px);
+            		transform: translateY(60px);
+            		transition: all 0.2s ease-in-out;
+            		-webkit-transition: all 0.2s ease-in-out;
+            		-webkit-font-smoothing: antialiased;
+            		h1 {
+            			font-size: 3.6em;
+            			line-height: 0;
+            		}
+            		p {
+            			font-size: 2.0em;
+            		}
+            	}
+			}
+		}
+		.slide2 {
+			position: relative;
+			background: $charc url('../img/slide2.jpg') no-repeat;
+			background-position: 50%;
+			background-size: 100% auto;
+			@include breakpoint($breakpoint-mobile) {
+				background-size: 100%;
+			}
+			&:hover .overlay{
+				opacity: 0.8;
+				.slide-title {
+					-webkit-transform: translateY(0px);
+            		transform: translateY(0px);
+				}
+			}
+			.overlay {
+				position: relative;
+				display: flex;
+				align-items: center;
+				background: $charc;
+            	text-align: center;
+            	justify-content: center;
+            	opacity:0;
+            	-webkit-transition: all .25s ease;
+            	.slide-title {
+            		padding: 2% 8% 1% 8%;
+            		border: 4px solid white;
+            		color: white;
+            		-webkit-transform: translateY(60px);
+            		transform: translateY(60px);
+            		transition: all 0.2s ease-in-out;
+            		-webkit-transition: all 0.2s ease-in-out;
+            		h1 {
+            			font-size: 3.6em;
+            			line-height: 0;
+            		}
+            		p {
+            			font-size: 2.0em;
+            		}
+            	}
+			}
+
+		}
+		.slide3 {
+			position: relative;
+			background: $charc url('../img/slide3.jpg') no-repeat;
+			background-position: 50%;
+			background-size: 100% auto;
 			@include breakpoint($breakpoint-mobile) {
 				background-size: 100%;
 			}
@@ -579,7 +671,7 @@ body {
 		}
 		.sound1 {
 			&:hover {
-				background: url('../img/smiley-oh.svg') no-repeat;
+				background: url('../img/smiley.svg') no-repeat;
 				cursor: pointer;
 				background-size: 55%;
 				background-position: 50%;
