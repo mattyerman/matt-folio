@@ -38,38 +38,38 @@
 				</div>
 				<div class="soundcloud">
 					<ul>
-						<li>
+						<li class="song-paused">
 							<div class="song-listing">
-								<div class="song-artist">Raf Riley</div>
-								<div class="song-title">Watch Out!</div>
+								<div class="song-artist"></div>
+								<div class="song-title"></div>
 							</div>
 							<div class="song-view"><a href="#">&#xEE00;</a></div>
 						</li>
-						<li>
+						<li class="song-paused">
 							<div class="song-listing">
-								<div class="song-artist">Cashmere Cat</div>
-								<div class="song-title">Rice Rain</div>
+								<div class="song-artist"></div>
+								<div class="song-title"></div>
 							</div>
 							<div class="song-view"><a href="#">&#xEE00;</a></div>
 						</li>
-						<li>
+						<li class="song-paused">
 							<div class="song-listing">
-								<div class="song-artist">Sable</div>
-								<div class="song-title">Foolish</div>
+								<div class="song-artist"></div>
+								<div class="song-title"></div>
 							</div>
 							<div class="song-view"><a href="#">&#xEE00;</a></div>
 						</li>
-						<li>
+						<li class="song-paused">
 							<div class="song-listing">
-								<div class="song-artist">Pomo</div>
-								<div class="song-title">Tinashe - Vulnerable (Pomo Remix)</div>
+								<div class="song-artist"></div>
+								<div class="song-title"></div>
 							</div>
 							<div class="song-view"><a href="#">&#xEE00;</a></div>
 						</li>
-						<li class="last-song">
+						<li class="last-song song-paused">
 							<div class="song-listing">
-								<div class="song-artist">Joe Kay</div>
-								<div class="song-title">D'Angelo x Miguel Macedo - divish J...</div>
+								<div class="song-artist"></div>
+								<div class="song-title"></div>
 							</div>
 							<div class="song-view"><a href="#">&#xEE00;</a></div>
 						</li>
@@ -120,6 +120,7 @@
 			 				<span class="slide-title">
 			 					<h1>Seattle Pt. II</h1>
 			 					<p>Made with: Jackie Ngo</p>
+			 					<p><a href="http://www.madeservice.net/seattle" target="_blank">View Website</a></p>
 			 				</span>
 			 			</div>
 			        </div>
@@ -157,31 +158,34 @@
     <div id="jquery_jplayer_1" class="jplayer"></div>
 
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<script>
-	$('.about-big').flowtype({minimum: 400, minFont: 18, maxFont: 32, fontRatio : 30});
-	$('.about-small').flowtype({minimum: 400, minFont: 13, maxFont: 20, fontRatio : 44});
-	$('.soundcloud').flowtype({minFont: 12, fontRatio : 42});
-	$('.title').flowtype({minFont: 14, fontRatio : 19});
-	$('.slider').slick({
-		slidesToShow: 1,
-  		slidesToScroll: 1,
-		dots: false,
-  		speed: 300,
-  		autoplay: false,
-  		infinite: true,
-  		arrows: true,
-  		easing: 'linear'
-  	});
-  	$('.the-thing').slick({
-		slidesToShow: 1,
-  		slidesToScroll: 1,
-		dots: false,
-  		speed: 200,
-  		autoplay: true,
-  		autoplaySpeed: 3500,
-  		infinite: true,
-  		arrows: false,
-  		easing: 'easeInOutExpo'
+<script type="text/javascript"> 
+        $j = jQuery.noConflict();
+        $j(document).ready(function() {
+			$('.about-big').flowtype({minimum: 400, minFont: 18, maxFont: 38, fontRatio : 30});
+			$('.about-small').flowtype({minimum: 400, minFont: 13, maxFont: 24, fontRatio : 44});
+			$('.soundcloud').flowtype({minFont: 12, fontRatio : 42});
+			$('.title').flowtype({minFont: 14, fontRatio : 19});
+			$('.slider').slick({
+				slidesToShow: 1,
+		  		slidesToScroll: 1,
+				dots: false,
+		  		speed: 300,
+		  		autoplay: false,
+		  		infinite: true,
+		  		arrows: true,
+		  		easing: 'linear'
+		  	});
+		  	$('.the-thing').slick({
+				slidesToShow: 1,
+		  		slidesToScroll: 1,
+				dots: false,
+		  		speed: 200,
+		  		autoplay: true,
+		  		autoplaySpeed: 3500,
+		  		infinite: true,
+		  		arrows: false,
+		  		easing: 'easeInOutExpo'
+		 });
   	});
 </script>
 <script type="text/javascript">
@@ -190,7 +194,7 @@
         // Soundcloud API Information
         var client_id = "dd53477b034f71d746d0ef95df937a06";
         var apiUrl = "http://api.soundcloud.com";
-        var pathForMackBlajikTracks = "/users/734840/tracks";
+        var pathForMackBlajikTracks = "/users/734840/favorites";
 
         // store a global reference to the current SC sound object.
         window.current_sc_sound = null;
@@ -211,7 +215,7 @@
         // Render list of songs into HTML, store relevant information about songs in data-tags
         var render_songs = function(tracks){
             var bigStringOfRows = "";
-            for(var i = 0; i < tracks.length; i++){
+            for(var i = 0; i < 5; i++){
                 var track = tracks[i];
                 bigStringOfRows = bigStringOfRows + '<li data-track-id="'+track['id']+'"> <div class="song-listing"> <div class="song-artist">'+track["user"]["username"]+'</div> <div class="song-title">'+track['title']+'</div> </div> <div class="song-view"><a href="#" data-track-id="'+track['id']+'">&#xEE00;</a></div> </li>';
             }            
@@ -229,7 +233,7 @@
             }
 
             // Stream the track with ID
-            SC.stream("/tracks/"+id, function(sound){
+            SC.stream("/favorites/"+id, function(sound){
                 sound.play();
                 window.current_sc_sound = sound;
             });

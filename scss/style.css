@@ -146,7 +146,8 @@ html {
   font-size: 62.5%;
   font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: auto;
-  text-rendering: geometricPrecision; }
+  text-rendering: geometricPrecision;
+  image-rendering: optimizeQuality; }
 
 a {
   -webkit-transition: color 0.2s ease-in-out, margin-bottom 0.2s ease-in-out;
@@ -173,6 +174,14 @@ body {
   @media (max-width: 800px) {
     body {
       border: 0; } }
+
+::selection {
+  background: #ff7f66;
+  /* WebKit/Blink Browsers */ }
+
+::-moz-selection {
+  background: #ff7f66;
+  /* Gecko Browsers */ }
 
 .container {
   margin: 0 auto;
@@ -244,7 +253,7 @@ body {
   margin-right: 0%;
   position: relative;
   line-height: 1.2;
-  font-family: "freight-text-pro", Georgia, Times, serif; }
+  overflow: hidden; }
   .soundcloud:before, .soundcloud:after {
     content: '';
     display: table; }
@@ -296,9 +305,24 @@ body {
     border-bottom: 1px solid #ededed;
     height: 20%;
     position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
     align-items: center;
-    margin-top: -1px; }
+    -ms-flex-align: center;
+    margin-top: -1px;
+    cursor: pointer; }
     @media (max-width: 800px) {
       .soundcloud li {
         height: 25%; } }
@@ -330,7 +354,8 @@ body {
         color: #777777; }
       .soundcloud li .song-listing .song-title {
         clear: both;
-        color: #303030; }
+        color: #303030;
+        text-transform: capitalize !important; }
     .soundcloud li .song-view {
       font-family: "SSPika";
       font-size: 1.0em;
@@ -425,8 +450,22 @@ body {
     height: 60%;
     position: relative;
     text-align: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
     align-items: center;
+    -ms-flex-align: center;
     line-height: 1.5;
     font-size: 1.0em; }
     @media (max-width: 800px) {
@@ -1050,11 +1089,33 @@ body {
         transform: translateY(0px); }
     .slider .slide1 .overlay {
       position: relative;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
       align-items: center;
+      -ms-flex-align: center;
       background: rgba(42, 43, 44, 0.8);
       text-align: center;
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      -o-justify-content: center;
       justify-content: center;
+      -ms-flex-pack: center;
       opacity: 0;
       -webkit-transition: all .25s ease; }
       .slider .slide1 .overlay .slide-title {
@@ -1086,11 +1147,33 @@ body {
         transform: translateY(0px); }
     .slider .slide2 .overlay {
       position: relative;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
       align-items: center;
+      -ms-flex-align: center;
       background: #292929;
       text-align: center;
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      -o-justify-content: center;
       justify-content: center;
+      -ms-flex-pack: center;
       opacity: 0;
       -webkit-transition: all .25s ease; }
       .slider .slide2 .overlay .slide-title {
@@ -1147,8 +1230,22 @@ body {
   background: #fcf1dc;
   height: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center; }
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
   .about:before, .about:after {
     content: '';
     display: table; }
@@ -1169,8 +1266,22 @@ body {
       margin-left: 0%;
       margin-right: 0%;
       position: relative;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center; }
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center; }
       .about:before, .about:after {
         content: '';
         display: table; }
@@ -1287,8 +1398,22 @@ body {
     background-color: #1ba1ff;
     height: 25%;
     position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center; }
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center; }
     .horror-and-sounds .sounds :first-child {
       margin-left: 5%; }
     .horror-and-sounds .sounds :last-child {
@@ -1310,9 +1435,31 @@ body {
   width: 100%;
   height: 100%;
   background: #ff7f66;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
   align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
   justify-content: center;
+  -ms-flex-pack: center;
   -webkit-font-smoothing: antialiased; }
 
 .new {
@@ -1339,6 +1486,20 @@ body {
   padding-bottom: 15%;
   height: auto;
   width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
   justify-content: center;
+  -ms-flex-pack: center;
   opacity: 0.7; }

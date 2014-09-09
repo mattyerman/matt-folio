@@ -25,3 +25,11 @@ $breakpoint-mobileMin: min-width 640px;
   font-size: ($sizeValue * 10) + px;
   font-size: $sizeValue + rem;
 }
+
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
