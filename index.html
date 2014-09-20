@@ -2,9 +2,9 @@
 <head>
 	<link rel="stylesheet" href="scss/style.css">
 	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="scripts/flowtype.js"></script>
-	<script src="scripts/slick.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/flowtype.js"></script>
+	<script type="text/javascript" src="scripts/slick.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/met7gyn.js"></script>
     <script type="text/javascript" charset="utf-8" src="logo_edgePreload.js"></script>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
@@ -38,40 +38,40 @@
 				</div>
 				<div class="soundcloud">
 					<ul>
-						<li class="song-paused">
+						<li class="song-play">
 							<div class="song-listing">
-								<div class="song-artist"></div>
-								<div class="song-title"></div>
+								<div class="song-artist">Mack Blajik</div>
+								<div class="song-title">That's The Way Love Goes</div>
 							</div>
-							<div class="song-view"><a href="#">&#xEE00;</a></div>
+							<div class="song-view"><a href="#">&#x2601;</a></div>
 						</li>
-						<li class="song-paused">
+						<li>
 							<div class="song-listing">
 								<div class="song-artist"></div>
 								<div class="song-title"></div>
 							</div>
-							<div class="song-view"><a href="#">&#xEE00;</a></div>
+							<div class="song-view"><a href="#">&#x2601;</a></div>
 						</li>
-						<li class="song-paused">
+						<li>
 							<div class="song-listing">
 								<div class="song-artist"></div>
 								<div class="song-title"></div>
 							</div>
-							<div class="song-view"><a href="#">&#xEE00;</a></div>
+							<div class="song-view"><a href="#">&#x2601;</a></div>
 						</li>
-						<li class="song-paused">
+						<li>
 							<div class="song-listing">
 								<div class="song-artist"></div>
 								<div class="song-title"></div>
 							</div>
-							<div class="song-view"><a href="#">&#xEE00;</a></div>
+							<div class="song-view"><a href="#">&#x2601;</a></div>
 						</li>
-						<li class="last-song song-paused">
+						<li class="last-song">
 							<div class="song-listing">
 								<div class="song-artist"></div>
 								<div class="song-title"></div>
 							</div>
-							<div class="song-view"><a href="#">&#xEE00;</a></div>
+							<div class="song-view"><a href="#">&#x2601;</a></div>
 						</li>
 					</ul>
 				</div>
@@ -217,7 +217,7 @@
             var bigStringOfRows = "";
             for(var i = 0; i < 5; i++){
                 var track = tracks[i];
-                bigStringOfRows = bigStringOfRows + '<li data-track-id="'+track['id']+'"> <div class="song-listing"> <div class="song-artist">'+track["user"]["username"]+'</div> <div class="song-title">'+track['title']+'</div> </div> <div class="song-view"><a href="#" data-track-id="'+track['id']+'">&#xEE00;</a></div> </li>';
+                bigStringOfRows = bigStringOfRows + '<li data-track-id="'+track['id']+'"> </div> <div class="song-listing"> <div class="song-artist">'+track["user"]["username"]+'</div> <div class="song-title">'+track['title']+'</div> </div> <div class="song-view"><a href="'+track['permalink_url']+'" data-track-id="'+track['id']+'">&#x2601;</a></div> </li>';
             }            
             $('.soundcloud ul').html(bigStringOfRows);
 
@@ -233,14 +233,14 @@
             }
 
             // Stream the track with ID
-            SC.stream("/favorites/"+id, function(sound){
+            SC.stream("/tracks/"+id, function(sound){
                 sound.play();
                 window.current_sc_sound = sound;
             });
         };
 
         // Bind callback functions to elements in the song rows
-        var bind_player_callbacks = function(callback){
+        var bind_jplayer_callbacks = function(callback){
             $('.soundcloud ul li').each(function(index){
                 $(this).on('click', function(){
                     var $this = $(this);
@@ -256,7 +256,7 @@
                             $this.addClass('song-playing');
                             $this.removeClass('song-paused');
                         }
-                        // Were done, no need to do any of the below.
+                        // We're done, no need to do any of the below.
                         return;
                     }
                     

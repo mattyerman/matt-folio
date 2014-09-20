@@ -1,0 +1,53 @@
+<html>
+<head>
+	<link rel="stylesheet" href="scss/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/flowtype.js"></script>
+	<script type="text/javascript" src="//use.typekit.net/met7gyn.js"></script>
+</head>
+<body>
+	<div class="container">
+		<section class="header">
+			<div class="ratio"></div>
+			<header class="content">
+				<div class="navigation">
+					<nav class="menu">
+						<div>
+							<span><a href="#">Work</a></span>
+							<span><a href="#">About</a></span>
+							<span><a href="#">Things</a></span>
+						</div>			
+					</nav>
+					<div class="page-ui">About</div>
+				</div>
+				<div class="logo logo-about"></div>
+			</header>
+		</section>
+		<section class="work-description">
+			<div class="description-container">
+				<h1>Hello.</h1>
+<!-- 				<h2>CA Technologies</h2> -->
+				<h3>Obligatory about section with some words on how I champion the internet, build multi-dimensional website systems and draw with my mind pencil. </h3>
+				<div></div>
+				<p>On the real though, I'm mostly an Art Director at John McNeil Studio. In the non-work time, there are minutes for musical tinkerings, horror marathons and unrecognizable (see fancy), food items. Also kitties. Follow me on <a href="#">twitter</a> or <a href="#">instagram</a>.
+				</p>
+			</div>
+		</section>
+		<section class="work-hero">
+			<img src="../img/work/hero-cabeta.jpg"></img>
+		</section>
+	</div>
+
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript"> 
+    $(document).ready(function() {
+		$('h1').flowtype({minimum: 400, minFont: 28, maxFont: 88, fontRatio : 10});
+		$('h2').flowtype({minimum: 400, minFont: 11, maxFont: 20, fontRatio : 50});
+		$('h3').flowtype({minimum: 400, minFont: 20, maxFont: 30, fontRatio : 36});
+		$('p').flowtype({minimum: 400, minFont: 16, maxFont: 22, fontRatio : 50});
+		$('.page-ui').flowtype({minimum: 400, minFont: 14, maxFont: 26, fontRatio : 26});
+  	});
+</script>
+
+</body>
