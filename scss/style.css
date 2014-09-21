@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*  Syntax Quick Reference
   --------------------------
   column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter)
@@ -39,7 +40,7 @@
   .slick-list:focus {
     outline: none; }
   .slick-loading .slick-list {
-    background: white url("./ajax-loader.gif") center center no-repeat; }
+    background: #fff url("./ajax-loader.gif") center center no-repeat; }
   .slick-list.dragging {
     cursor: pointer;
     cursor: hand; }
@@ -136,11 +137,56 @@
 .slick-next {
   right: -25px; }
   .slick-next:before {
-    content: "\2192"; }
+    content: "→"; }
 
 /* Dots */
 .slick-slider {
   margin-bottom: 30px; }
+
+.logo-beta {
+  background-color: #55beaf; }
+
+.description-container {
+  background: url("../img/work/description-cabeta.jpg") no-repeat;
+  background-size: cover;
+  padding: 10% 25% 8% 8%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.6em; }
+  @media (max-width: 800px) {
+    .description-container {
+      padding: 14% 8% 7% 8%; } }
+  .description-container h1 {
+    font-family: "Walsheim", Arial, sans-serif;
+    font-weight: normal;
+    margin: 0 0 4.5% -3px;
+    line-height: 0;
+    padding: 0; }
+    @media (max-width: 640px) {
+      .description-container h1 {
+        margin: 0 0 6% -3px; } }
+  .description-container h2 {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    color: white; }
+  .description-container h3 {
+    font-weight: normal;
+    line-height: 1.4em; }
+  .description-container div {
+    width: 19px;
+    height: 2px;
+    background: black;
+    opacity: 0.1; }
+  .description-container span {
+    opacity: 0.5; }
+
+.work-hero {
+  padding: 7% 4% 4% 4%;
+  background: #f8f8f8; }
+  .work-hero img {
+    width: 100%;
+    height: auto; }
 
 .header {
   position: relative; }
@@ -286,9 +332,9 @@ nav.menu:hover div > span:nth-child(3) {
     font-size: 1.6em;
     color: #292929;
     float: left;
-    -webkit-transition: top 0.35s ease-in;
-    -moz-transition: top 0.35s ease-in;
-    transition: top 0.35s ease-in;
+    -webkit-transition: top 0.5s ease-in;
+    -moz-transition: top 0.5s ease-in;
+    transition: top 0.5s ease-in;
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -405,53 +451,8 @@ nav.menu:hover div > span:nth-child(3) {
   .logo:hover {
     background-position: 50% -200%, 50% 50%; }
 
-.logo-beta {
-  background-color: #55beaf; }
-
 .logo-about {
   background-color: #ff7f66; }
-
-.description-container {
-  background: url("../img/work/description-cabeta.jpg") no-repeat;
-  background-size: cover;
-  padding: 10% 25% 8% 8%;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  font-size: 1.6em; }
-  @media (max-width: 800px) {
-    .description-container {
-      padding: 14% 8% 7% 8%; } }
-  .description-container h1 {
-    font-family: "Walsheim", Arial, sans-serif;
-    font-weight: normal;
-    margin: 0 0 4.5% -3px;
-    line-height: 0;
-    padding: 0; }
-    @media (max-width: 640px) {
-      .description-container h1 {
-        margin: 0 0 6% -3px; } }
-  .description-container h2 {
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 0.15em;
-    color: white; }
-  .description-container h3 {
-    font-weight: normal;
-    line-height: 1.4em; }
-  .description-container div {
-    width: 19px;
-    height: 2px;
-    background: black;
-    opacity: 0.1; }
-  .description-container span {
-    opacity: 0.5; }
-
-.work-hero {
-  padding: 7% 4% 4% 4%;
-  background: #f8f8f8; }
-  .work-hero img {
-    width: 100%;
-    height: auto; }
 
 html {
   font-size: 62.5%;
@@ -1842,3 +1843,5 @@ body {
   justify-content: center;
   -ms-flex-pack: center;
   opacity: 0.7; }
+
+/*# sourceMappingURL=style.css.map */
