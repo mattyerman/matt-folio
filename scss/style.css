@@ -461,6 +461,13 @@ html {
   text-rendering: geometricPrecision;
   image-rendering: optimizeQuality; }
 
+.edgeLoad-logo-animation {
+  visibility: hidden; }
+
+.jplayer {
+  visibility: hidden;
+  display: none; }
+
 a {
   -webkit-transition: color 0.2s ease-in-out, margin-bottom 0.2s ease-in-out;
   -moz-transition: color 0.2s ease-in-out, margin-bottom 0.2s ease-in-out;
@@ -554,30 +561,37 @@ body {
 
 .song-active {
   background: url("../img/playing.svg") no-repeat;
-  background-size: 8%;
-  background-position: 4% 50%;
-  float: left;
-  position: relative;
-  width: 100%;
-  height: 100%; }
-
-.song-paused {
-  background: url("../img/pause.svg") no-repeat;
-  background-size: 8%;
-  background-position: 4% 50%;
+  background-size: 8% !important;
+  background-position: 4% 50% !important;
   float: left;
   position: relative;
   width: 100%;
   height: 100%; }
 
 .song-playing {
-  background: url("../img/play.svg") no-repeat;
-  background-size: 8%;
-  background-position: 4% 50%;
+  background: url("../img/pause.svg") no-repeat !important;
+  background-size: 8% !important;
+  background-position: 4% 50% !important;
   float: left;
   position: relative;
   width: 100%;
   height: 100%; }
+
+.song-paused, .song-default {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.song-paused {
+  background: url("../img/play.svg") no-repeat !important;
+  background-size: 8%;
+  background-position: 4% 50%; }
+
+.song-default {
+  background: url("../img/play.svg") no-repeat;
+  background-size: 8% !important;
+  background-position: 4% 50% !important; }
 
 .soundcloud {
   *zoom: 1;
@@ -1531,7 +1545,6 @@ body {
           font-size: 2.0em; }
   .slider .slide3 {
     position: relative;
-    background: #292929 url("../img/slide3.jpg") no-repeat;
     background-position: 50%;
     background-size: 100% auto; }
     @media (max-width: 640px) {

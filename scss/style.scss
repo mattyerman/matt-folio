@@ -18,6 +18,13 @@ html {
  	image-rendering:optimizeQuality;
 }
 
+// put this somewhere else dicko
+.edgeLoad-logo-animation { visibility:hidden; }
+.jplayer {
+    visibility:hidden;
+    display:none;
+}
+
 // @include transition (all 0.4s cubic-bezier(0.850, 0.000, 0.000, 1.000));
 
 a {
@@ -92,31 +99,41 @@ body {
 
 .song-active {
 	background: url('../img/playing.svg') no-repeat;
-	background-size: 8%;
-	background-position: 4% 50%;
+	background-size: 8% !important;
+	background-position: 4% 50% !important;
 	float: left;
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
-.song-paused {
-	background: url('../img/pause.svg') no-repeat;
-	background-size: 8%;
-	background-position: 4% 50%;
+.song-playing {
+	background: url('../img/pause.svg') no-repeat !important;
+	background-size: 8% !important;
+	background-position: 4% 50% !important;
 	float: left;
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
 
- .song-playing {
-	background: url('../img/play.svg') no-repeat;
-	background-size: 8%;
-	background-position: 4% 50%;
+%definition-paused {
 	float: left;
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+
+.song-paused {
+	@extend %definition-paused;	
+	background: url('../img/play.svg') no-repeat !important;
+	background-size: 8%;
+	background-position: 4% 50%;
+}
+.song-default {
+	@extend %definition-paused;
+	background: url('../img/play.svg') no-repeat;
+	background-size: 8% !important;
+	background-position: 4% 50% !important;
 }
 
 .soundcloud {
@@ -607,7 +624,7 @@ body {
 		}
 		.slide3 {
 			position: relative;
-			background: $charc url('../img/slide3.jpg') no-repeat;
+			// background: $charc url('../img/slide3.jpg') no-repeat;
 			background-position: 50%;
 			background-size: 100% auto;
 			@include breakpoint($breakpoint-mobile) {
