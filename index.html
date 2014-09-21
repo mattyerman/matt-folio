@@ -105,6 +105,7 @@
 	</section>
   </div>
   <div id="jquery_jplayer_1" class="jplayer"></div>
+  <script type="text/javascript" charset="utf-8" src="logo_edgePreload.js"></script>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="scripts/flowtype.js"></script>
@@ -112,34 +113,33 @@
 	<!--<script type="text/javascript" src="logo_edgePreload.js"></script> -->
 	<script type="text/javascript" src="http://connect.soundcloud.com/sdk.js"></script>
 	<script type="text/javascript"> 
-		// $j = jQuery.noConflict();
-	 //  $j(document).ready(function() {
-		// 	$('.about-big').flowtype({minimum: 400, minFont: 18, maxFont: 38, fontRatio : 30});
-		// 	$('.about-small').flowtype({minimum: 400, minFont: 13, maxFont: 24, fontRatio : 44});
-		// 	$('.soundcloud').flowtype({minFont: 12, fontRatio : 42});
-		// 	$('.title').flowtype({minFont: 14, fontRatio : 19});
-		// 	$('.slider').slick({
-		// 		slidesToShow: 1,
-		//   		slidesToScroll: 1,
-		// 		dots: false,
-		//   		speed: 300,
-		//   		autoplay: false,
-		//   		infinite: true,
-		//   		arrows: true,
-		//   		easing: 'linear'
-		//   	});
-		//   	$('.the-thing').slick({
-		// 		slidesToShow: 1,
-		//   		slidesToScroll: 1,
-		// 		dots: false,
-		//   		speed: 200,
-		//   		autoplay: true,
-		//   		autoplaySpeed: 3500,
-		//   		infinite: true,
-		//   		arrows: false,
-		//   		easing: 'easeInOutExpo'
-		//  	});
-		// });
+	  $(document).ready(function() {
+			$('.about-big').flowtype({minimum: 400, minFont: 18, maxFont: 38, fontRatio : 30});
+			$('.about-small').flowtype({minimum: 400, minFont: 13, maxFont: 24, fontRatio : 44});
+			$('.soundcloud').flowtype({minFont: 12, fontRatio : 42});
+			$('.title').flowtype({minFont: 14, fontRatio : 19});
+			$('.slider').slick({
+				slidesToShow: 1,
+		  		slidesToScroll: 1,
+				dots: false,
+		  		speed: 300,
+		  		autoplay: false,
+		  		infinite: true,
+		  		arrows: true,
+		  		easing: 'linear'
+		  	});
+		  	$('.the-thing').slick({
+				slidesToShow: 1,
+		  		slidesToScroll: 1,
+				dots: false,
+		  		speed: 200,
+		  		autoplay: true,
+		  		autoplaySpeed: 3500,
+		  		infinite: true,
+		  		arrows: false,
+		  		easing: 'easeInOutExpo'
+		 	});
+		});
 	</script>
 	<script type="text/javascript">
 	    // Wait for DOM to finish loading before proceeding
